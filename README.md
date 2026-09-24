@@ -12,7 +12,6 @@
 ## 快速启动
 
 ```bash
-cd src
 python -m http.server 8080
 ```
 
