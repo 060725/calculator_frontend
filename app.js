@@ -1,5 +1,13 @@
 /* 前端逻辑：管理输入表达式、调用后端 API、渲染历史记录、支持键盘快捷键。 */
-const API_BASE_URL = 'http://localhost:5000/api';
+
+/* 部署后把这里改成你的 PythonAnywhere 后端地址（形如 https://你的用户名.pythonanywhere.com/api） */
+const REMOTE_API = 'https://CHANGE-ME.pythonanywhere.com/api';
+
+/* 本地开发用 localhost，部署后自动使用线上后端 */
+const API_BASE_URL =
+  location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+    ? 'http://localhost:5000/api'
+    : REMOTE_API;
 
 let expression = '';
 
