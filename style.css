@@ -1,0 +1,203 @@
+:root {
+  --bg: #1e1e2e;
+  --panel: #27273a;
+  --display-bg: #17171f;
+  --btn-num: #2f2f46;
+  --btn-num-hover: #3b3b57;
+  --btn-op: #ff9f0a;
+  --btn-op-hover: #ffb340;
+  --btn-fn: #48486b;
+  --btn-fn-hover: #5a5a88;
+  --btn-eq: #30d158;
+  --btn-eq-hover: #4ce07a;
+  --text: #f2f2f7;
+  --text-dim: #9a9ab0;
+  --accent: #ff6b6b;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+  width: 860px;
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+}
+
+/* ---------- 计算器 ---------- */
+.calculator {
+  flex: 3;
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.display {
+  background: var(--display-bg);
+  border-radius: 10px;
+  padding: 18px 16px;
+  text-align: right;
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.expression {
+  font-size: 18px;
+  color: var(--text-dim);
+  min-height: 24px;
+  word-break: break-all;
+}
+
+.result {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.1;
+  word-break: break-all;
+}
+
+.error {
+  font-size: 15px;
+  color: var(--accent);
+  font-weight: 600;
+  min-height: 20px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  height: 58px;
+  border: none;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.05s;
+  user-select: none;
+}
+
+.btn:active { transform: scale(0.95); }
+
+.btn.num { background: var(--btn-num); }
+.btn.num:hover { background: var(--btn-num-hover); }
+
+.btn.op { background: var(--btn-op); color: #1c1c1c; }
+.btn.op:hover { background: var(--btn-op-hover); }
+
+.btn.fn { background: var(--btn-fn); color: var(--text); }
+.btn.fn:hover { background: var(--btn-fn-hover); }
+
+.btn.eq { background: var(--btn-eq); color: #1c1c1c; }
+.btn.eq:hover { background: var(--btn-eq-hover); }
+
+/* ---------- 历史记录 ---------- */
+.history {
+  flex: 2;
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  min-height: 560px;
+  max-height: 640px;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #3a3a55;
+}
+
+.history-header button {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.history-header button:hover { background: rgba(255, 107, 107, 0.12); }
+
+.history-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-list::-webkit-scrollbar { width: 6px; }
+.history-list::-webkit-scrollbar-thumb { background: #48486b; border-radius: 3px; }
+
+.record {
+  background: var(--display-bg);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.record-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.record-expr { color: var(--text-dim); word-break: break-all; }
+.record-result { font-weight: 600; color: var(--btn-eq); word-break: break-all; }
+
+.record-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.record-del {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+.record-del:hover { color: var(--accent); }
+
+.history-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  font-size: 14px;
+}
